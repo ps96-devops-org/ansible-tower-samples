@@ -1,0 +1,16 @@
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: install httpd
+      yum:
+        name: httpd
+        state: latest
+    - name: start and enable httpd
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+    - name: retrieve website from repo
+      copy:
+        src: index.html
+        dest: /var/www/html/
