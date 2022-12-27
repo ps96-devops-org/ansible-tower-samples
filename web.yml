@@ -2,7 +2,7 @@
   become: yes
   tasks:
     - name: install httpd
-      yum:
+      apt-get:
         name: httpd
         state: latest
     - name: start and enable httpd
